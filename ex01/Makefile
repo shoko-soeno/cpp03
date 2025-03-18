@@ -6,14 +6,14 @@
 #    By: ssoeno <ssoeno@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/11 17:24:41 by ssoeno            #+#    #+#              #
-#    Updated: 2025/03/17 15:18:42 by ssoeno           ###   ########.fr        #
+#    Updated: 2025/03/18 22:26:52 by ssoeno           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = scavtrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
