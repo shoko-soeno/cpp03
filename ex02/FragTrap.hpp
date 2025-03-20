@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssoeno <ssoeno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:53:44 by ssoeno            #+#    #+#             */
-/*   Updated: 2025/03/20 15:12:48 by ssoeno           ###   ########.fr       */
+/*   Created: 2025/03/20 14:39:18 by ssoeno            #+#    #+#             */
+/*   Updated: 2025/03/20 14:53:40 by ssoeno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 # include <iostream>
 # include <string>
+# include "ClapTrap.hpp"
 
-class ClapTrap
+class FragTrap : public ClapTrap
 {
 private:
-    std::string _name;
-    unsigned int _hitPoints;
-    unsigned int _energyPoints;
-    unsigned int _attackDamage;
-
+    static const unsigned int fragDefaultHitPoints;
+    static const unsigned int fragDefaultEnergyPoints;
+    static const unsigned int fragDefaultAttackDamage;
+    
 public:
-    ClapTrap();
-    ClapTrap(const std::string &name);
-    ClapTrap(const ClapTrap &src);
-    ClapTrap &operator=(const ClapTrap &src);
-    virtual ~ClapTrap();
+    FragTrap();
+    FragTrap(const std::string &name);
+    FragTrap(const FragTrap &src);
+    FragTrap &operator=(const FragTrap &src);
+    ~FragTrap();
 
     void attack(const std::string& target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+    void highFivesGuys(void);
 };
 
 #endif
