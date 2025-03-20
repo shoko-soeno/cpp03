@@ -6,25 +6,29 @@
 /*   By: ssoeno <ssoeno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 22:07:26 by ssoeno            #+#    #+#             */
-/*   Updated: 2025/03/18 22:26:22 by ssoeno           ###   ########.fr       */
+/*   Updated: 2025/03/20 14:32:42 by ssoeno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+const unsigned int ScavTrap::scavDefaultHitPoints = 100;
+const unsigned int ScavTrap::scavDefaultEnergyPoints = 50;
+const unsigned int ScavTrap::scavDefaultAttackDamage = 20;
+
 ScavTrap::ScavTrap() : ClapTrap() {
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
+    hitPoints = scavDefaultHitPoints;
+    energyPoints = scavDefaultEnergyPoints;
+    attackDamage = scavDefaultAttackDamage;
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-    std::cout << "ScavTrap " << _name << " is created!" << std::endl;
+    hitPoints = scavDefaultHitPoints;
+    energyPoints = scavDefaultEnergyPoints;
+    attackDamage = scavDefaultAttackDamage;
+    std::cout << "ScavTrap " << name << " is created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src)
@@ -34,7 +38,7 @@ ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src)
 }
 
 ScavTrap:: ~ScavTrap() {
-    std::cout << "ScavTrap " << _name << " is destroyed!" << std::endl;
+    std::cout << "ScavTrap " << name << " is destroyed!" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
@@ -47,21 +51,21 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
 
 void ScavTrap::attack(const std::string& target)
 {
-    if (_energyPoints <= 0)
+    if (energyPoints <= 0)
     {
-        std::cout << "ScavTrap " << _name << " is out of energy and cannot attach!" << std::endl;
+        std::cout << "ScavTrap " << name << " is out of energy and cannot attach!" << std::endl;
         return ;
-    } else if (_hitPoints <= 0)
+    } else if (hitPoints <= 0)
     {
-        std::cout << "ScavTrap " << _name << " is dead!" << std::endl;
+        std::cout << "ScavTrap " << name << " is dead!" << std::endl;
         return ;
     } else {
-        std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
-        _energyPoints--;
+        std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+        energyPoints--;
     }
 }
 
-void ScavTrap::guradGate(void)
+void ScavTrap::guardGate(void)
 {
-    std::cout << "ScavTrap " << _name << " has entered in Gate keeper mode!" << std::endl;
+    std::cout << "ScavTrap " << name << " has entered in Gate keeper mode!" << std::endl;
 }
