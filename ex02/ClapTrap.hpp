@@ -6,7 +6,7 @@
 /*   By: ssoeno <ssoeno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:53:44 by ssoeno            #+#    #+#             */
-/*   Updated: 2025/03/18 21:28:27 by ssoeno           ###   ########.fr       */
+/*   Updated: 2025/03/20 15:12:48 by ssoeno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     ClapTrap(const std::string &name);
     ClapTrap(const ClapTrap &src);
     ClapTrap &operator=(const ClapTrap &src);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
